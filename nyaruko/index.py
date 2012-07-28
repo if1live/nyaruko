@@ -1,22 +1,26 @@
 import os
 from flask import Flask
-from flask import render_template
+from flask import send_from_directory, render_template
 from htmlmin.minify import html_minify
+from settings import setting
 
 app = Flask(__name__)
 
 _m = html_minify
 
-app.add_url_rule('/favicon.ico',
-                 redirect_to=url_for('static', filename='favicon.ico'))
+''' For favicon ( static/favicon.ico ) '''
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/')
 def index():
-    return _m(render_template('index.html'))
+    return render_template('index.html')
 
 @app.route('/search')
 def search():
-    return _m(render_template('main.html'))
+    return render_template('main.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host=setting.host, port=setting.port, debug=setting.debug)

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0f"/>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+    <title>Nyaruko</title>
+
+    <!-- css -->
+    <link href="static/css/bootstrap.css" rel="stylesheet"/>              
+    <style type="text/css">
+      body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+      }
+    </style>
+    <!-- responsive를 위의 수동 css보다 나중에 넣어야 화면 크기 변할떄 우선권을 갖는다 -->
+    <link href="static/css/bootstrap-responsive.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- navbar -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+          <a class="brand" href="#">Nyaruko</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Tags</a></li>
+              <li><a href="#">Recent Changes</a></li>
+            </ul>
+          </div>
+
+          <form class="navbar-search pull-left nav-collapse">
+            <input type="text" class="search-query input-small" placeholder="Search"></input>
+          </form>
+
+
+          <form class="navbar-form pull-right form-inline nav-collapse">
+            <label class="checkbox">
+              <input type="checkbox">Remember me</input>
+            </label>
+            <input type="text" class="input-small" placeholder="Email"></input>
+            <input type="password" class="input-small" placeholder="Password"></input>
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn btn-info">Sign In</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+

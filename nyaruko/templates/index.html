@@ -1,148 +1,64 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0f"/>
-    <meta name="author" content=""/>
-    <meta name="description" content=""/>
-    <title>Nyaruko</title>
-
-    <!-- css -->
-    <link href="static/css/bootstrap.css" rel="stylesheet"/>	      
-    <style type="text/css">
-      body {
-      padding-top: 60px;
-      padding-bottom: 40px;
-      }
-    </style>
-    <!-- responsive를 위의 수동 css보다 나중에 넣어야 화면 크기 변할떄 우선권을 갖는다 -->
-    <link href="static/css/bootstrap-responsive.css" rel="stylesheet"/>
-
-
-  </head>
-  <body>
-    <!-- navbar -->
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-	<div class="container-fluid">
-	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	  </a>
-
-	  <a class="brand" href="#">Nyaruko</a>
-	  <div class="nav-collapse">
-	    <ul class="nav">
-	      <li class="active"><a href="#">Home</a></li>
-	      <li><a href="#">Tags</a></li>
-	      <li><a href="#">Recent Changes</a></li>
-	    </ul>
-	  </div>
-
-	  <form class="navbar-search pull-left nav-collapse">
-	    <input type="text" class="search-query input-small" placeholder="Search"></input>
-	  </form>
-
-
-	  <form class="navbar-form pull-right form-inline nav-collapse">
-	    <label class="checkbox">
-	      <input type="checkbox">Remember me</input>
-	    </label>
-	    <input type="text" class="input-small" placeholder="Email"></input>
-	    <input type="password" class="input-small" placeholder="Password"></input>
-	    <button type="submit" class="btn">Login</button>
-	    <button type="button" class="btn btn-info">Sign In</button>
-	  </form>
-	</div>
-      </div>
-    </div>
-
+{% include 'header.html' with context%}
     <div class="container">
       <div class="hero-unit">
-	<h1>Project::Nyaruko</h1>
-	<h2>행성보호기구 연세대학교 지부</h2>
-	<blockquote>
-	  <p>이 지구는 행성보호기구에서도 톱 레벨의 보호 대상으로 지정돼 있다는 것은 이미 말씀드린 바와 같습니다만, 그 이유가 이겁니다! 
-	    애니라던가, 만화라던가, 게임이라던가? 어휘로 말하자면 "오락" 영어로 말하자면 "Entertainment!"<br/>
-	    <strong>지구의 오락은 우주제일!</strong>
-	  </p>
-	  <small class="pull-right">냐루코</small>
-	</blockquote>
+        <h1>Project::Nyaruko</h1>
+        <h2>행성보호기구 연세대학교 지부</h2>
+        <blockquote>
+          <p>이 지구는 행성보호기구에서도 톱 레벨의 보호 대상으로 지정돼 있다는 것은 이미 말씀드린 바와 같습니다만, 그 이유가 이겁니다! 
+            애니라던가, 만화라던가, 게임이라던가? 어휘로 말하자면 "오락" 영어로 말하자면 "Entertainment!"<br/>
+            <strong>지구의 오락은 우주제일!</strong>
+          </p>
+          <small class="pull-right">냐루코</small>
+        </blockquote>
       </div>
 
       <!-- search -->
       <div class="row">
-	<div class="offset1 span10">
-	  <form class="form-horizontal">
-	    <fieldset>
-	      <div class="control-group">
-		<label class="control-label" for="text">Text</label>
-		<div class="controls">
-		  <input type="text" class="input-medium search-query" id="text"/>
-		</div>
-	      </div>
-	      <div class="control-group">
-		<label class="control-label" for="type">Type</label>
-		<div class="controls">
-		  <label class="checkbox inline">
-		    <input type="checkbox" id="type_ani" value="ani">Anime</input>
-		  </label>
-		  <label class="checkbox inline">
-		    <input type="checkbox" id="type_comic" value="comic">Comic</input>
-		  </label>
-		  <label class="checkbox inline">
-		    <input type="checkbox" id="type_game" value="game">Game</input>
-		  </label>
-		  <label class="checkbox inline">
-		    <input type="checkbox" id="type_doujinshi" value="doujinshi">동인지</input>
-		  </label>
-		  <label class="checkbox inline">
-		    <input type="checkbox" id="type_movie" value="movie">Movie</input>
-		  </label>
-		  <label class="checkbox inline">
-		    <input type="checkbox" id="type_drama" value="drama">Drama</input>
-		  </label>
-		</div>
-	      </div>
-	      <div class="control-group">
-		<div class="controls">
-		  <button type="button" class="btn">Check All</button>
-		  <button type="button" class="btn">Clear All</button>
-		</div>
-	      </div>
-	      <div class="control-group">
-		<div class="controls">
-		  <button type="submit" class="btn btn-primary">Search</button>
-		</div>
-	      </div>
-	    </fieldset>
-	  </form>
-	</div>
+        <div class="offset1 span10">
+          <form class="form-horizontal">
+            <fieldset>
+              <div class="control-group">
+                <label class="control-label" for="text">Text</label>
+                <div class="controls">
+                  <input type="text" class="input-medium search-query" id="text"/>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="type">Type</label>
+                <div class="controls">
+                  <label class="checkbox inline">
+                    <input type="checkbox" id="type_ani" value="ani">Anime</input>
+                  </label>
+                  <label class="checkbox inline">
+                    <input type="checkbox" id="type_comic" value="comic">Comic</input>
+                  </label>
+                  <label class="checkbox inline">
+                    <input type="checkbox" id="type_game" value="game">Game</input>
+                  </label>
+                  <label class="checkbox inline">
+                    <input type="checkbox" id="type_doujinshi" value="doujinshi">동인지</input>
+                  </label>
+                  <label class="checkbox inline">
+                    <input type="checkbox" id="type_movie" value="movie">Movie</input>
+                  </label>
+                  <label class="checkbox inline">
+                    <input type="checkbox" id="type_drama" value="drama">Drama</input>
+                  </label>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <button type="button" class="btn">Check All</button>
+                  <button type="button" class="btn">Clear All</button>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
       </div> 
-      
-      <!--footer -->
-      <hr>
-      <div class="container">
-	<p>@OOO 2012</p>
-      </div>
-    </div>
-    
-    <!-- script -->
-    <script src="static/js/jquery.js"></script>
-    <script src="static/js/bootstrap.js"></script>
-    <script src="static/js/google-code-prettify/prettify.js"></script>
-    <script src="static/js/bootstrap-transition.js"></script>
-    <script src="static/js/bootstrap-alert.js"></script>
-    <script src="static/js/bootstrap-modal.js"></script>
-    <script src="static/js/bootstrap-dropdown.js"></script>
-    <script src="static/js/bootstrap-scrollspy.js"></script>
-    <script src="static/js/bootstrap-tab.js"></script>
-    <script src="static/js/bootstrap-tooltip.js"></script>
-    <script src="static/js/bootstrap-popover.js"></script>
-    <script src="static/js/bootstrap-button.js"></script>
-    <script src="static/js/bootstrap-collapse.js"></script>
-    <script src="static/js/bootstrap-carousel.js"></script>
-    <script src="static/js/bootstrap-typeahead.js"></script>
-  </body>
-</html>
+{% include 'footer.html' without context %}
