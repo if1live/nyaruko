@@ -1,8 +1,11 @@
+import os
 from flask import Flask
-from flask import render_template;
+from flask import render_template
 
 app = Flask(__name__)
 
+app.add_url_rule('/favicon.ico',
+                 redirect_to=url_for('static', filename='favicon.ico'))
 @app.route('/')
 def index():
     return render_template('index.html')
