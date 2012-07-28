@@ -446,7 +446,7 @@ h6 {
   font-family: inherit;
   font-weight: bold;
   color: inherit;
-  text-rendering: optimizelegibility;
+  /*text-rendering: optimizelegibility; 한글이 꺠진다 -_-*/
 }
 
 h1 small,
