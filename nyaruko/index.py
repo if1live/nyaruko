@@ -30,19 +30,9 @@ def index():
   개발에 필요한 속성은 카테고리별 코드와 고유이름뿐이지만
   html에 찍어내기 위해서는 추가 속성(node id, etc)가 필요하다
   적절히 재조합해서 만들어내기
+  code:CO / name:Comic / id:category_co 같은것의 배열
   '''
-  category_list = get_category_list()
-  category_data = []
-  for category_info in category_list:
-    category_code = category_info[0]
-    category_name = category_info[1]
-    category_id = category_name.lower()
-    category_data.append({
-        'code' : category_code,
-        'name' : category_name,
-        'id' : 'category_' + category_id
-        })
-
+  category_data = get_category_data()
   return render_template('index.html', 
                          title = title,
                          subtitle = subtitle,
@@ -57,7 +47,9 @@ def login():
 @app.route('/search')
 @minify
 def search():
-  return render_template('main.html')
+  category_data = get_category_data()
+  return render_template('search.html',
+                         category_data = category_data)
 
 if __name__ == '__main__':
   app.jinja_env.add_extension('jinja2.ext.i18n')
