@@ -3,7 +3,9 @@
 import os
 from flask import Flask
 from flask import send_from_directory, render_template
+from flask import session
 import config
+import auth
 from util import *
 
 app = Flask(__name__)
@@ -17,8 +19,15 @@ def favicon():
 
 @app.route('/')
 @minify
+@auth.requires_auth
 def index():
     return render_template('index.html')
+
+@app.route('/login')
+@minify
+def login():
+    return render_template('index.html')
+
 
 @app.route('/search')
 @minify
