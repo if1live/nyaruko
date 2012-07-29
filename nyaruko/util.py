@@ -3,8 +3,6 @@
 from htmlmin.minify import html_minify
 from functools import wraps
 
-_m = lambda x:
-
 def minify(f):
     @wraps(f)
     def minify(*args, **kwargs):
