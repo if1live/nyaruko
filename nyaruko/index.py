@@ -3,7 +3,9 @@
 import os
 from flask import Flask
 from flask import send_from_directory, render_template
+from flask import session
 import config
+import auth
 from util import *
 from constant import *
 
@@ -18,6 +20,7 @@ def favicon():
 
 @app.route('/')
 @minify
+@auth.requires_auth
 def index():
   title = "Project::Nyaruko"
   subtitle = u"행성보호기구 연세대학교 지부"
@@ -44,6 +47,12 @@ def index():
                          title = title,
                          subtitle = subtitle,
                          category_data = category_data)
+
+@app.route('/login')
+@minify
+def login():
+    return render_template('index.html')
+
 
 @app.route('/search')
 @minify
