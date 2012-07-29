@@ -1,12 +1,19 @@
+# -*- coding: utf-8 -*-
+
 import os
 from flask import Flask
 from flask import send_from_directory, render_template
-from htmlmin.minify import html_minify
-from settings import setting
+import config
+from util import *
+import gettext
 
 app = Flask(__name__)
 
-_m = html_minify
+
+gettext.bindtextdomain('nyaruko', os.path.join(app.root_path, 'lang')
+gettext.textdomain('nyaruko')
+
+_ = gettext.gettext
 
 ''' For favicon ( static/favicon.ico ) '''
 @app.route('/favicon.ico')
@@ -15,12 +22,15 @@ def favicon():
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/')
+@minify
 def index():
     return render_template('index.html')
 
 @app.route('/search')
+@minify
 def search():
     return render_template('main.html')
 
 if __name__ == '__main__':
-    app.run(host=setting.host, port=setting.port, debug=setting.debug)
+    app.jinja_env.add_extension('jinja2.ext.i18n')
+    app.run(host=config.SERVER_HOST, port=config.SERVER_PORT, debug=config.SERVER_DEBUG)
