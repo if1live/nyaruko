@@ -5,15 +5,9 @@ from flask import Flask
 from flask import send_from_directory, render_template
 import config
 from util import *
-import gettext
 
 app = Flask(__name__)
 
-
-gettext.bindtextdomain('nyaruko', os.path.join(app.root_path, 'lang')
-gettext.textdomain('nyaruko')
-
-_ = gettext.gettext
 
 ''' For favicon ( static/favicon.ico ) '''
 @app.route('/favicon.ico')
