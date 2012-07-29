@@ -20,7 +20,7 @@ def favicon():
 
 @app.route('/')
 @minify
-@auth.requires_auth
+#@auth.requires_auth
 def index():
   title = "Project::Nyaruko"
   subtitle = u"행성보호기구 연세대학교 지부"

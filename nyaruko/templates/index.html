@@ -17,12 +17,12 @@
       <!-- search -->
       <div class="row">
         <div class="offset1 span10">
-          <form class="form-horizontal">
+          <form class="form-horizontal" method="GET" action="search">
             <fieldset>
               <div class="control-group">
                 <label class="control-label" for="text">Keyword</label>
                 <div class="controls">
-                  <input type="text" class="input-medium search-query" id="text"/>
+                  <input type="text" class="input-medium search-query" name="keyword"/>
                 </div>
               </div>
               <div class="control-group">
@@ -30,7 +30,7 @@
                 <div class="controls">
 		  {% for category in category_data %}
 		  <label class="checkbox inline">
-                    <input type="checkbox" id="{{category.id}}" value="{{category.code}}">{{category.name}}</input>
+                    <input type="checkbox" name="category" value="{{category.code}}" class="category-checkbox">{{category.name}}</input>
                   </label>                  
 		  {% endfor %}
 
@@ -38,9 +38,9 @@
               </div>
               <div class="control-group">
                 <div class="controls">
-                  <button type="button" class="btn">Check All</button> 
+                  <button type="button" class="btn" id="category-check-all">Check All</button> 
 		  <span> </span>
-                  <button type="button" class="btn">Clear All</button>
+                  <button type="button" class="btn" id="category-clear-all">Clear All</button>
                 </div>
               </div>
               <div class="control-group">
@@ -51,5 +51,10 @@
             </fieldset>
           </form>
         </div>
-      </div> 
+      </div>
 {% include 'footer.html' without context %}
+
+<!--input custom js -->
+<script src="static/js/index.js" type="text/javascript"></script>
+
+{% include 'html_close.html' without context %}
