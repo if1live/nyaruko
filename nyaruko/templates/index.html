@@ -17,20 +17,20 @@
       <!-- search -->
       <div class="row">
         <div class="offset1 span10">
-          <form class="form-horizontal" method="GET" action="search">
+          <form name="search_form" class="form-horizontal" method="GET" action="search" onsubmit="return validate_search_form();">
             <fieldset>
               <div class="control-group">
-                <label class="control-label" for="text">Keyword</label>
+                <label class="control-label" for="keyword_input">Keyword</label>
                 <div class="controls">
-                  <input type="text" class="input-medium search-query" name="keyword"/>
+                  <input type="text" class="input-medium search-query" name="keyword" id="keyword_input"/>
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label" for="category">Category</label>
+                <label class="control-label">Category</label>
                 <div class="controls">
 		  {% for category in category_data %}
 		  <label class="checkbox inline">
-                    <input type="checkbox" name="category" value="{{category.code}}" class="category-checkbox">{{category.name}}</input>
+                    <input type="checkbox" name="c" value="{{category.code}}" class="category-checkbox" checked="checked">{{category.name}}</input>
                   </label>                  
 		  {% endfor %}
 

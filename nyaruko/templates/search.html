@@ -1,5 +1,11 @@
 {% include 'header.html' with context %}
     <div class="container">
+      {{ keyword }}
+      {% for c in category %}
+      {{ c}}
+      {% endfor %}
+{{ category }}
+
       <div class="container-fluid">
 	<div class="row-fluid">
 	  <!-- searched tag list -->

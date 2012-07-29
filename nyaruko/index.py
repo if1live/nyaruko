@@ -4,6 +4,7 @@ import os
 from flask import Flask
 from flask import send_from_directory, render_template
 from flask import session
+from flask import request
 import config
 import auth
 from util import *
@@ -41,15 +42,22 @@ def index():
 @app.route('/login')
 @minify
 def login():
-    return render_template('index.html')
+  return render_template('index.html')
 
 
 @app.route('/search')
 @minify
 def search():
+  keyword = request.args.get('keyword')
+  #keyword = request.form['keyword']
+  #category는 길어서 축약형으로 씀
+  category = request.args.get('c')  
+  #print category
+  #print "<html><body>hello world</body></html>"
+
   category_data = get_category_data()
-  return render_template('search.html',
-                         category_data = category_data)
+  return render_template('search.html', category_data = category_data,
+                         keyword = keyword, category = category)
 
 if __name__ == '__main__':
   app.jinja_env.add_extension('jinja2.ext.i18n')
