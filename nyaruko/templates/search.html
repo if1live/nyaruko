@@ -1,10 +1,9 @@
 {% include 'header.html' with context %}
     <div class="container">
       {{ keyword }}
-      {% for c in category %}
-      {{ c}}
+      {% for category in category_list %}
+      {{ category }}
       {% endfor %}
-{{ category }}
 
       <div class="container-fluid">
 	<div class="row-fluid">
@@ -24,7 +23,11 @@
 	    <!-- 카테고리 정리 -->
 	    <div class="btn-group" data-toggle="buttons-checkbox">
 	      {% for info in category_data %}
+	      {% if info.checked %}
+              <button class="btn btn-primary active">{{info.name}}</button>
+	      {% else %}
               <button class="btn btn-primary">{{info.name}}</button>
+	      {% endif %}
 	      {% endfor %}
             </div>
 	  </div>

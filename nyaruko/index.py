@@ -51,13 +51,20 @@ def search():
   keyword = request.args.get('keyword')
   #keyword = request.form['keyword']
   #category는 길어서 축약형으로 씀
-  category = request.args.get('c')  
-  #print category
-  #print "<html><body>hello world</body></html>"
-
+  category_list = request.args.getlist('c')  
   category_data = get_category_data()
-  return render_template('search.html', category_data = category_data,
-                         keyword = keyword, category = category)
+  for category_info in category_data:
+    code = category_info['code']
+    cnt = category_list.count(code)
+    if cnt == 0:
+      category_info['checked'] = False
+    else:
+      category_info['checked'] = True
+  
+  return render_template('search.html', 
+                         category_data = category_data,
+                         keyword = keyword, 
+                         category_list = category_list)
 
 if __name__ == '__main__':
   app.jinja_env.add_extension('jinja2.ext.i18n')

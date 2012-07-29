@@ -11,6 +11,7 @@ function validate_search_form() {
   if(keyword == '') {
     return false;
   }
+  document.forms["search_form"]["keyword"].value = keyword
   return true;
 }
 
