@@ -13,6 +13,8 @@ def minify(f):
     @wraps(f)
     def minify(*args, **kwargs):
         response = f(*args, **kwargs)
-        return html_minify(isinstance(response, unicode) and response.encode('utf-8') or response)
+        if isinstance(response, (unicode, str)):
+          return html_minify(isinstance(response, unicode) and response.encode('utf-8') or response)
+        return response
  
     return minify
